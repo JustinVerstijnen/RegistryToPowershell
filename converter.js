@@ -37,10 +37,9 @@ function convert() {
                 if (!currentPath) throw `Value outside of registry path on line ${index + 1}`;
                 if (!line.includes('=')) throw `Missing '=' on line ${index + 1}`;
 
-                const [namePart, valuePart] = line.split('=');
+                const [namePart, valuePartRaw] = line.split('=');
                 const name = namePart.replace(/^"|"$/g, '');
-
-                if (!valuePart) throw `Missing value on line ${index + 1}`;
+                const valuePart = valuePartRaw.trim();
 
                 let value = '';
                 let type = '';
@@ -49,13 +48,23 @@ function convert() {
                     type = 'DWord';
                     value = parseInt(valuePart.replace('dword:', ''), 16);
                     if (isNaN(value)) throw `Invalid DWORD value on line ${index + 1}`;
+                } else if (valuePart.startsWith('hex(7):')) {
+                    type = 'MultiString';
+                    const hexValues = valuePart.replace('hex(7):', '').split(',').map(h => parseInt(h, 16));
+                    const utf16str = hexToUtf16String(hexValues);
+                    const multiStrings = utf16str.split('\u0000').filter(s => s);
+                    value = '@("' + multiStrings.join('","') + '")';
+                } else if (valuePart.startsWith('hex(2):')) {
+                    type = 'ExpandString';
+                    const hexValues = valuePart.replace('hex(2):', '').split(',').map(h => parseInt(h, 16));
+                    const utf16str = hexToUtf16String(hexValues);
+                    value = `"${utf16str.replace(/\u0000/g, '')}"`;
                 } else if (valuePart.startsWith('hex:')) {
                     type = 'Binary';
                     value = '"' + valuePart.replace(/^hex:/, '').replace(/,/g, '') + '"';
                 } else if (valuePart.startsWith('"') && valuePart.endsWith('"')) {
                     type = 'String';
-                    value = valuePart.replace(/^"|"$/g, '');
-                    value = `'${value}'`;
+                    value = `'${valuePart.replace(/^"|"$/g, '')}'`;
                 } else {
                     type = 'String';
                     value = `'${valuePart}'`;
@@ -71,6 +80,17 @@ function convert() {
     } catch (err) {
         showNotification(err);
     }
+}
+
+function hexToUtf16String(hexArray) {
+    let chars = [];
+    for (let i = 0; i < hexArray.length; i += 2) {
+        if (i + 1 < hexArray.length) {
+            const code = (hexArray[i+1] << 8) + hexArray[i];
+            chars.push(String.fromCharCode(code));
+        }
+    }
+    return chars.join('');
 }
 
 function copyOutput() {
