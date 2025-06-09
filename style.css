@@ -1,0 +1,141 @@
+
+body {
+    background-color: #ffffff;
+    color: #000000;
+    font-family: 'Segoe UI', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+}
+
+.container {
+    width: 90%;
+    max-width: 900px;
+    padding: 20px;
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 0 10px #ccc;
+    text-align: center;
+}
+
+.logo {
+    width: 50px;
+    height: 50px;
+    margin-bottom: 10px;
+}
+
+h1 {
+    margin-bottom: 10px;
+    color: #333;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+h2 {
+    margin-bottom: 20px;
+    color: #555;
+    font-weight: normal;
+    font-size: 0.9em;
+}
+
+textarea, pre.powershell {
+    width: 100%;
+    max-width: 850px;
+    height: 170px;
+    margin: 0 auto 15px auto;
+    display: block;
+    box-sizing: border-box;
+    border-radius: 5px;
+    padding: 10px;
+    font-size: 14px;
+}
+
+textarea {
+    background-color: #f9f9f9;
+    color: #000000;
+    border: 1px solid #ccc;
+}
+
+pre.powershell {
+    background-color: #1e1e1e;
+    color: #d4d4d4;
+    border: 1px solid #ccc;
+    font-family: 'Courier New', monospace;
+    text-align: left;
+    overflow: auto;
+    white-space: pre-wrap;
+}
+
+button {
+    background-color: #88B0DC;
+    border: none;
+    padding: 10px 20px;
+    color: #ffffff;
+    border-radius: 5px;
+    margin: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    font-size: 14px;
+}
+
+button i {
+    margin-right: 8px;
+}
+
+button:hover {
+    background-color: #6a9ac9;
+}
+
+button.clear {
+    background-color: #f4a4a4;
+}
+
+button.clear:hover {
+    background-color: #e18383;
+}
+
+button.download {
+    background-color: #92dba5;
+}
+
+button.download:hover {
+    background-color: #78c58d;
+}
+
+.file-upload {
+    margin-bottom: 20px;
+}
+
+.file-label {
+    background-color: #88B0DC;
+    color: #ffffff;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+    display: inline-block;
+    transition: background-color 0.3s;
+}
+
+.file-label i {
+    margin-right: 8px;
+}
+
+.file-label:hover {
+    background-color: #6a9ac9;
+}
+
+input[type="file"] {
+    display: none;
+}
+
+#notification {
+    display: none;
+    margin-bottom: 20px;
+    padding: 10px 20px;
+    border-radius: 5px;
+    background-color: #f8d7da;
+    color: #721c24;
+    border: 1px solid #f5c6cb;
+}
