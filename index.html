@@ -1,0 +1,47 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>REG to PowerShell - justinverstijnen.nl</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="A simple tool to convert Windows registry changes to PowerShell scripts.">
+    <link rel="stylesheet" href="registrytopowershell/assets/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="icon" type="image/png" href="https://justinverstijnen.nl/wp-content/uploads/2025/04/cropped-Logo-2.0-final.png">
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4082816808518335" crossorigin="anonymous"></script>
+</head>
+<body>
+    <div class="container">
+        <a href="https://justinverstijnen.nl/" target="_blank">
+            <img src="https://justinverstijnen.nl/wp-content/uploads/2025/04/cropped-Logo-2.0-Transparant.png" alt="Logo" class="logo">
+        </a>
+        <h1>REG to PowerShell</h1>
+        <h2>Easily convert Windows Registry files and keys to PowerShell scripts</h2>
+
+        <div id="notification"></div>
+
+        <div class="file-upload">
+            <label for="fileInput" class="file-label">
+                <i class="fas fa-file-upload"></i> Choose .reg file
+            </label>
+            <input type="file" id="fileInput" accept=".reg" onchange="handleFileUpload(event)" />
+        </div>
+
+        <textarea id="regInput" placeholder="Paste your .reg file content here or upload a file above"></textarea>
+        
+        <div class="buttons">
+            <button onclick="convert()"><i class="fas fa-cogs"></i> Convert</button>
+            <button class="clear" onclick="clearAll()"><i class="fas fa-broom"></i> Clear</button>
+        </div>
+
+        <pre id="psOutput" class="powershell"></pre>
+        
+        <div class="buttons">
+            <button onclick="copyOutput()"><i class="fas fa-copy"></i> Copy Output</button>
+            <button class="download" onclick="downloadOutput()"><i class="fas fa-download"></i> Download Script</button>
+        </div>
+    </div>
+    <script src="registrytopowershell/assets/app.js"></script>
+</body>
+</html>
