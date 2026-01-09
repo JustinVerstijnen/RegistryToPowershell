@@ -1,22 +1,20 @@
 
 body {
+    font-family: 'Segoe UI', sans-serif;
     background-color: #f2f2f2;
     color: #000000;
-    font-family: 'Segoe UI', sans-serif;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
     margin: 0;
+    padding: 0;
 }
 
 .container {
-    width: 90%;
+    position: relative;
     max-width: 900px;
+    margin: 40px auto;
     padding: 20px;
     background-color: #ffffff;
-    border-radius: 10px;
-    box-shadow: 0 0 10px #ccc;
+    border-radius: 8px;
+    box-shadow: 0 0 15px rgba(0,0,0,0.1);
     text-align: center;
 }
 
@@ -37,6 +35,21 @@ h2 {
     color: #555;
     font-weight: normal;
     font-size: 0.9em;
+}
+
+/* =========================
+   Footer (same style as DNS MEGAtool)
+   ========================= */
+.footer {
+    text-align: center;
+    font-size: 9px;
+    color: #777;
+    margin-top: 40px;
+}
+
+.footer a {
+    color: #777;
+    text-decoration: none;
 }
 
 textarea, pre.powershell {
@@ -138,4 +151,19 @@ input[type="file"] {
     background-color: #f8d7da;
     color: #721c24;
     border: 1px solid #f5c6cb;
+}
+
+/* =========================
+   Footer (same as DNS MEGAtool)
+   ========================= */
+.footer {
+    text-align: center;
+    font-size: 9px;
+    color: #777;
+    margin-top: 40px;
+}
+
+.footer a {
+    color: #777;
+    text-decoration: none;
 }
