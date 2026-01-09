@@ -21,11 +21,12 @@ body {
 .logo {
     width: 50px;
     height: 50px;
-    margin-bottom: 10px;
+    margin-bottom: 0px;
 }
 
 h1 {
     margin-bottom: 10px;
+    margin-top: 10px;
     color: #333;
     font-family: 'Segoe UI', sans-serif;
 }
@@ -37,9 +38,6 @@ h2 {
     font-size: 0.9em;
 }
 
-/* =========================
-   Footer (same style as DNS MEGAtool)
-   ========================= */
 .footer {
     text-align: center;
     font-size: 9px;
@@ -153,9 +151,6 @@ input[type="file"] {
     border: 1px solid #f5c6cb;
 }
 
-/* =========================
-   Footer (same as DNS MEGAtool)
-   ========================= */
 .footer {
     text-align: center;
     font-size: 9px;
